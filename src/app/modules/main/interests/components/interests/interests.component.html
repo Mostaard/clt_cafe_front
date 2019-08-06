@@ -1,0 +1,13 @@
+<div class="interests clt-card">
+  <h2 *ngIf="!userHasInterests">Vervolledig je profiel met enkele interesses</h2>
+  <h2 *ngIf="userHasInterests">Interesses</h2>
+  <mat-chip-list *ngIf="userHasInterests">
+    <mat-chip *ngFor="let interest of userInterests" (click)="select(interest)">
+      {{interest.name}}
+      <button *ngIf="interest===selectedInterest" mat-icon-button (click)="delete()">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </mat-chip>
+  </mat-chip-list>
+  <app-interests-search (selectInterest)="addInterest($event)"></app-interests-search>
+</div>

@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Gesprek</h1>
+<div mat-dialog-content>
+  <p>U heeft een {{opportunity.percentage * 100}} % match met dit gesprek.</p>
+  <p>Wilt u een verzoek sturen?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Annuleer</button>
+  <button mat-flat-button color="primary" (click)="sendRequest()">Verzoek sturen</button>
+</div>
+

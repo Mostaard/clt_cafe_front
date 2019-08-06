@@ -1,0 +1,19 @@
+<div class="user-moments clt-card">
+  <button class="user-moments__add" (click)="openAddMomentDialog()" mat-icon-button>
+    <mat-icon>add_circle_outline</mat-icon>
+  </button>
+  <div *ngIf="!userHasMoments" class="user-moments__initialize">
+    <h2>U hebt geen toekomstige vrije momenten</h2>
+    <button mat-flat-button color="accent" (click)="openAddMomentDialog()">Start!</button>
+  </div>
+  <div *ngIf="userHasMoments" class="user-moments__content">
+
+    <h2>Momenten</h2>
+    <p>Eerstkomende {{moments.length}} worden getoond, op de <a class="inline-a" routerLink="/calendar">kalender</a>
+      vind je
+      meer terug</p>
+    <mat-list>
+      <mat-list-item *ngFor="let moment of moments">{{moment | date :'d-M-yyyy HH:mm'}}</mat-list-item>
+    </mat-list>
+  </div>
+</div>

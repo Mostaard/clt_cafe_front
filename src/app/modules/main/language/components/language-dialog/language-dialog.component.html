@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Hi username</h1>
+<div mat-dialog-content *ngIf="languages">
+  <div>
+    <p>Welke taal wil je toevoegen?</p>
+    <mat-form-field>
+      <input type="text" placeholder="Kies een taal" aria-label="Taal" matInput [formControl]="languageControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="languageDisplay">
+        <mat-option *ngFor="let language of filterLanguages | async" [value]="language">
+          {{language.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div>
+    <p>Hoe goed beheers je deze taal?</p>
+    <mat-form-field>
+      <mat-label>Niveau</mat-label>
+      <mat-select [(ngModel)]="userLanguage.proficiency">
+        <mat-option *ngFor="let proficiency of proficiencies | async" [value]="proficiency">
+          {{proficiency.level}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-checkbox [(ngModel)]="userLanguage.learning">Lerende</mat-checkbox>
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Annuleer</button>
+  <button *ngIf="editMode" mat-button color="warn" (click)="delete()">Verwijder</button>
+  <button cdkFocusRegionstart
+          color="accent"
+          [disabled]="!userLanguageValid"
+          mat-flat-button
+          (click)="save()">Opslaan
+  </button>
+</div>

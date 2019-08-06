@@ -1,0 +1,16 @@
+@import "theme.scss";
+
+$primary: mat-palette($cafe-primary);
+$accent:  mat-palette($cafe-accent);
+$warn:    mat-palette($cafe-warn);
+
+$component-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.05);;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+

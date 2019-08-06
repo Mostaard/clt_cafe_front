@@ -1,0 +1,22 @@
+<div class="languages clt-card">
+  <div *ngIf="!userHasLanguages" class="languages__initialize">
+    <h2>Je hebt nog geen talen gekozen</h2>
+    <button mat-flat-button color="accent" (click)="openAddLanguageDialog()">Start!</button>
+  </div>
+
+  <div *ngIf="userHasLanguages" class="languages__content">
+    <h2>Talen</h2>
+    <mat-chip-list>
+      <mat-chip *ngFor="let language of userLanguages"
+                (click)="openAddLanguageDialog(language)"
+                matTooltip="{{language.proficiency.level}}"
+                ngClass="{{getClass(language)}}">
+        {{language.language.name}}
+      </mat-chip>
+      <mat-chip (click)=" openAddLanguageDialog()">
+        <mat-icon>add_circle_outline</mat-icon>
+        Toevoegen
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>

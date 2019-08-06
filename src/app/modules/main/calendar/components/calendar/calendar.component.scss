@@ -1,0 +1,21 @@
+@import "../../../../../../styles-variables";
+
+
+app-month-calendar {
+  margin: 0 2rem 0 2rem;
+  padding: 1rem;
+  box-shadow: $component-shadow;
+  border-radius: 3px;
+  background:white;
+}
+
+.calendar {
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+

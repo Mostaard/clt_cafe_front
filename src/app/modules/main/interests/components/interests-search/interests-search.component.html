@@ -1,0 +1,14 @@
+<div *ngIf="interests">
+  <mat-form-field>
+    <input type="text" placeholder="Zoek een interesse" aria-label="Taal" matInput [formControl]="interestControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="interestDisplay">
+      <mat-option *ngFor="let interest of filterInterests | async" [value]="interest">
+        {{interest.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button (click)="select()" [disabled]="!interestValid()" mat-icon-button>
+    <mat-icon>add_circle_outline</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,23 @@
+mat-chip-list {
+  margin: 2rem;
+}
+
+mat-chip {
+  cursor: pointer;
+}
+
+mat-chip mat-icon {
+  margin-left: 0.5rem;
+}
+
+app-interests-search {
+  margin-top: 1rem;
+}
+
+.interests {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
